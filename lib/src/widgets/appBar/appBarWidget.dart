@@ -1,5 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:white_label_flutter/src/utils/appRoutes.dart';
 
 class AppBarWidget extends PreferredSize {
