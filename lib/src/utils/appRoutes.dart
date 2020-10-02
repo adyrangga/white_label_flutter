@@ -5,13 +5,13 @@ import 'package:white_label_flutter/src/screens/register/register.dart';
 
 /// route path
 class RoutesPath {
-  static const dashboardPath = '/';
-  static const loginPath = '/login';
-  static const registerPath = '/register';
+  static const dashboard = '/';
+  static const login = '/login';
+  static const register = '/register';
 }
 
 /// route screen
 var appRoutes = <String, WidgetBuilder>{
-  RoutesPath.dashboardPath: (context) => DashboardScreen(),
-  RoutesPath.registerPath: (context) => RegisterScreen(),
+  RoutesPath.dashboard: (context) => DashboardScreen(),
+  RoutesPath.register: (context) => RegisterScreen(),
 };

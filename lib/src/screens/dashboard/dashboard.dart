@@ -27,7 +27,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBarWidget(
-        usageFor: RoutesPath.loginPath,
+        usageFor: RoutesPath.dashboard,
       ),
       body: SafeAreaWidget(
         onTap: () {
@@ -68,16 +68,16 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   Form(child: Column(
                     children: <Widget>[
                       InputFieldWidget(
+                        hintText: "Email address*",
+                        obscureText: true,
+                        textInputType: TextInputType.emailAddress,
+                        functionValidate: commonValidation,
+                      ),
+                      InputFieldWidget(
                         hintText: "Password",
                         obscureText: true,
                         textInputType: TextInputType.visiblePassword,
-                        // actionKeyboard: TextInputAction.done,
                         functionValidate: commonValidation,
-                        // controller: _passwordController,
-                        // focusNode: _passwordControllerFocus,
-                        // onSubmitField: () {},
-                        parametersValidate: "Please enter password.",
-                        // prefixIcon: Icon(Icons.keyboard_hide),
                       ),
                     ],
                   ))
@@ -87,7 +87,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.pushNamed(context, RoutesPath.registerPath);
+          Navigator.pushNamed(context, RoutesPath.register);
         },
         tooltip: 'Increment',
         child: Icon(Icons.add),

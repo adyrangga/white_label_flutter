@@ -55,72 +55,75 @@ class _InputFieldWidgetState extends State<InputFieldWidget> {
       data: Theme.of(context).copyWith(
         primaryColor: ColorPalette.primaryColor,
       ),
-      child: TextFormField(
-        cursorColor: ColorPalette.primaryColor,
-        obscureText: widget.obscureText,
-        keyboardType: widget.textInputType,
-        textInputAction: widget.actionKeyboard,
-        focusNode: widget.focusNode,
-        style: TextStyle(
-          color: Colors.black,
-          fontSize: 16.0,
-          fontWeight: FontWeight.w200,
-          fontStyle: FontStyle.normal,
-          letterSpacing: 1.2,
-        ),
-        initialValue: widget.defaultText,
-        decoration: InputDecoration(
-          labelText: 'Password*',
-          labelStyle: TextStyle(color: Colors.black),
-          prefixIcon: widget.prefixIcon,
-          // hintText: widget.hintText,
-          // hintStyle: TextStyle(
-          //   color: Colors.grey,
-          //   fontSize: 14.0,
-          //   fontWeight: FontWeight.w300,
-          //   fontStyle: FontStyle.normal,
-          //   letterSpacing: 1.2,
-          // ),
-          enabledBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: ColorPalette.primaryColor),
-          ),
-          focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: ColorPalette.primaryColor),
-          ),
-          contentPadding: EdgeInsets.only(
-              top: 12, bottom: bottomPaddingToError, left: 8.0, right: 8.0),
-          isDense: true,
-          errorStyle: TextStyle(
-            color: Colors.red,
-            fontSize: 12.0,
-            fontWeight: FontWeight.w300,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 8.0),
+        child: TextFormField(
+          cursorColor: ColorPalette.primaryColor,
+          obscureText: widget.obscureText,
+          keyboardType: widget.textInputType,
+          textInputAction: widget.actionKeyboard,
+          focusNode: widget.focusNode,
+          style: TextStyle(
+            color: Colors.black,
+            // fontSize: 16.0,
+            fontWeight: FontWeight.w200,
             fontStyle: FontStyle.normal,
             letterSpacing: 1.2,
           ),
-          errorBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: ColorPalette.primaryColor),
+          initialValue: widget.defaultText,
+          decoration: InputDecoration(
+            labelText: widget.hintText,
+            labelStyle: TextStyle(color: Colors.black),
+            prefixIcon: widget.prefixIcon,
+            // hintText: widget.hintText,
+            // hintStyle: TextStyle(
+            //   color: Colors.grey,
+            //   fontSize: 14.0,
+            //   fontWeight: FontWeight.w300,
+            //   fontStyle: FontStyle.normal,
+            //   letterSpacing: 1.2,
+            // ),
+            enabledBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: ColorPalette.primaryColor),
+            ),
+            focusedBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: ColorPalette.primaryColor),
+            ),
+            contentPadding: EdgeInsets.only(
+                top: 12, bottom: bottomPaddingToError, left: 8.0, right: 8.0),
+            isDense: true,
+            errorStyle: TextStyle(
+              color: Colors.red,
+              // fontSize: 12.0,
+              fontWeight: FontWeight.w300,
+              fontStyle: FontStyle.normal,
+              letterSpacing: 1.2,
+            ),
+            errorBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: ColorPalette.primaryColor),
+            ),
+            focusedErrorBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: ColorPalette.primaryColor),
+            ),
           ),
-          focusedErrorBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: ColorPalette.primaryColor),
-          ),
-        ),
-        controller: widget.controller,
-        validator: (value) {
-          if (widget.functionValidate != null) {
-            String resultValidate =
-            widget.functionValidate(value, widget.parametersValidate);
-            if (resultValidate != null) {
-              return resultValidate;
+          controller: widget.controller,
+          validator: (value) {
+            if (widget.functionValidate != null) {
+              String resultValidate =
+              widget.functionValidate(value, widget.parametersValidate);
+              if (resultValidate != null) {
+                return resultValidate;
+              }
             }
-          }
-          return null;
-        },
-        onFieldSubmitted: (value) {
-          if (widget.onSubmitField != null) widget.onSubmitField();
-        },
-        onTap: () {
-          if (widget.onFieldTap != null) widget.onFieldTap();
-        },
+            return null;
+          },
+          onFieldSubmitted: (value) {
+            if (widget.onSubmitField != null) widget.onSubmitField();
+          },
+          onTap: () {
+            if (widget.onFieldTap != null) widget.onFieldTap();
+          },
+        ),
       ),
     );
   }

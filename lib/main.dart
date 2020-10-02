@@ -9,13 +9,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: Constants.appTitle,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      initialRoute: RoutesPath.dashboardPath,
+      initialRoute: RoutesPath.dashboard,
       routes: appRoutes,
-      // home: DashboardScreen(title: 'Flutter Demo Home Page'),
     );
   }
 }

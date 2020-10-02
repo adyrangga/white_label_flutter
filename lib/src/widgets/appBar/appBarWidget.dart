@@ -15,37 +15,65 @@ class AppBarWidget extends PreferredSize {
     this.height = kToolbarHeight,
   });
 
-  Widget loginRightIcon(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.end,
-      children: <Widget>[
-        IconButton(
-          padding: EdgeInsets.all(0.0),
-          alignment: Alignment.centerRight,
-          icon: Icon(Icons.account_circle),
-          color: Colors.black54,
-          onPressed: () {
-            Navigator.pushNamed(context, RoutesPath.registerPath);
-          },
-        ),
-        IconButton(
-          alignment: Alignment.centerRight,
-          icon: Icon(Icons.shopping_cart),
-          color: Colors.black54,
-          onPressed: () {},
-        ),
-      ],
-    );
+  Widget rightSideContent(BuildContext context) {
+    print(usageFor);
+    if (usageFor == RoutesPath.dashboard) {
+      return null;
+    } else {
+      return Row(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: <Widget>[
+          IconButton(
+            padding: EdgeInsets.all(0.0),
+            alignment: Alignment.centerRight,
+            icon: Icon(Icons.account_circle),
+            color: Colors.black54,
+            onPressed: () {
+              Navigator.pushNamed(context, RoutesPath.register);
+            },
+          ),
+          IconButton(
+            alignment: Alignment.centerRight,
+            icon: Icon(Icons.shopping_cart),
+            color: Colors.black54,
+            onPressed: () {},
+          ),
+        ],
+      );
+    }
   }
 
-  /// decide the usages of head bar
-  Widget rightContent(BuildContext context) {
-    var content;
-    if (usageFor == RoutesPath.loginPath) {
-      content = loginRightIcon(context);
-      return content;
+  Widget leftSideContent(BuildContext context) {
+    if (usageFor == RoutesPath.dashboard) {
+      return IconButton(
+        alignment: Alignment.center,
+        icon: Icon(Icons.menu),
+        color: Colors.black,
+        onPressed: () {},
+        tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
+      );
+    } else {
+      return Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: <Widget>[
+          IconButton(
+            padding: EdgeInsets.all(0.0),
+            alignment: Alignment.center,
+            icon: Icon(Icons.menu),
+            color: Colors.black54,
+            onPressed: () {},
+            tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
+          ),
+          IconButton(
+            padding: EdgeInsets.all(0.0),
+            alignment: Alignment.centerLeft,
+            icon: Icon(Icons.pin_drop),
+            color: Colors.black54,
+            onPressed: () {},
+          ),
+        ],
+      );
     }
-    return null;
   }
 
   @override
@@ -72,13 +100,7 @@ class AppBarWidget extends PreferredSize {
             Container(
               width: MediaQuery.of(context).size.width * 0.33,
               alignment: Alignment.centerLeft,
-              child: IconButton(
-                alignment: Alignment.center,
-                icon: Icon(Icons.menu),
-                color: Colors.black,
-                onPressed: () {},
-                tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
-              ),
+              child: leftSideContent(context),
             ),
             Container(
                 width: MediaQuery.of(context).size.width * 0.34,
@@ -90,7 +112,7 @@ class AppBarWidget extends PreferredSize {
             Container(
               width: MediaQuery.of(context).size.width * 0.33,
               alignment: Alignment.centerRight,
-              child: rightContent(context),
+              child: rightSideContent(context),
             ),
           ],
         ),
