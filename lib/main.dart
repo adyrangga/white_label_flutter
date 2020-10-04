@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:white_label_flutter/src/utils/appRoutes.dart';
-import 'package:white_label_flutter/src/utils/constans.dart';
+import 'package:white_label_flutter/constants/strings.dart';
+import 'package:white_label_flutter/routes.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -10,12 +12,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: Constants.appTitle,
+      title: Strings.appName,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      initialRoute: RoutesPath.dashboard,
-      routes: appRoutes,
+      initialRoute: Routes.dashboard,
+      routes: Routes.routes,
     );
   }
 }

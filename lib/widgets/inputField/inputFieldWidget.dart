@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:white_label_flutter/src/utils/colorPalette.dart';
+import 'package:white_label_flutter/constants/colorPalette.dart';
 
 /// *  textInputType - The type of information for which to optimize the text input control.
 /// *  hintText - Text that suggests what sort of input the field accepts.
@@ -27,6 +27,7 @@ class InputFieldWidget extends StatefulWidget {
   final TextInputAction actionKeyboard;
   final Function onSubmitField;
   final Function onFieldTap;
+  final Function onSaved;
 
   const InputFieldWidget(
       {@required this.hintText,
@@ -40,7 +41,8 @@ class InputFieldWidget extends StatefulWidget {
         this.actionKeyboard = TextInputAction.next,
         this.onSubmitField,
         this.onFieldTap,
-        this.prefixIcon});
+        this.prefixIcon,
+        this.onSaved});
 
   @override
   _InputFieldWidgetState createState() => _InputFieldWidgetState();
@@ -66,31 +68,31 @@ class _InputFieldWidgetState extends State<InputFieldWidget> {
           style: TextStyle(
             color: Colors.black,
             // fontSize: 16.0,
-            fontWeight: FontWeight.w200,
+            // fontWeight: FontWeight.w200,
             fontStyle: FontStyle.normal,
-            letterSpacing: 1.2,
+            // letterSpacing: 1.2,
           ),
           initialValue: widget.defaultText,
           decoration: InputDecoration(
             labelText: widget.hintText,
-            labelStyle: TextStyle(color: Colors.black),
+            labelStyle: TextStyle(color: Colors.grey),
             prefixIcon: widget.prefixIcon,
-            // hintText: widget.hintText,
-            // hintStyle: TextStyle(
-            //   color: Colors.grey,
-            //   fontSize: 14.0,
-            //   fontWeight: FontWeight.w300,
-            //   fontStyle: FontStyle.normal,
-            //   letterSpacing: 1.2,
-            // ),
+            hintText: widget.hintText,
+            hintStyle: TextStyle(
+              color: Colors.grey,
+              // fontSize: 14.0,
+              // fontWeight: FontWeight.w300,
+              // fontStyle: FontStyle.normal,
+              // letterSpacing: 1.2,
+            ),
             enabledBorder: OutlineInputBorder(
               borderSide: BorderSide(color: ColorPalette.primaryColor),
             ),
             focusedBorder: OutlineInputBorder(
               borderSide: BorderSide(color: ColorPalette.primaryColor),
             ),
-            contentPadding: EdgeInsets.only(
-                top: 12, bottom: bottomPaddingToError, left: 8.0, right: 8.0),
+            // contentPadding: EdgeInsets.only(
+            //     top: 12, bottom: bottomPaddingToError, left: 8.0, right: 8.0),
             isDense: true,
             errorStyle: TextStyle(
               color: Colors.red,
@@ -110,7 +112,8 @@ class _InputFieldWidgetState extends State<InputFieldWidget> {
           validator: (value) {
             if (widget.functionValidate != null) {
               String resultValidate =
-              widget.functionValidate(value, widget.parametersValidate);
+              widget.functionValidate(value);
+              // widget.functionValidate(value, widget.parametersValidate);
               if (resultValidate != null) {
                 return resultValidate;
               }
@@ -122,6 +125,9 @@ class _InputFieldWidgetState extends State<InputFieldWidget> {
           },
           onTap: () {
             if (widget.onFieldTap != null) widget.onFieldTap();
+          },
+          onSaved: (value) {
+            if (widget.onSaved != null) widget.onSaved(value);
           },
         ),
       ),
