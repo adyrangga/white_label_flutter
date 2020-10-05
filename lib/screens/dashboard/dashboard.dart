@@ -6,12 +6,12 @@ import 'package:white_label_flutter/constants/strings.dart';
 import 'package:white_label_flutter/data/network/mock_urls.dart';
 import 'package:white_label_flutter/models/products/products_view_model.dart';
 import 'package:white_label_flutter/routes.dart';
-import 'package:white_label_flutter/widgets/appBar/appBarWidget.dart';
+import 'package:white_label_flutter/widgets/app_bar/app_bar_widget.dart';
 import 'package:white_label_flutter/widgets/products_grid/products_grid_widget.dart';
-import 'package:white_label_flutter/widgets/safeArea/saveAreaWidget.dart';
+import 'package:white_label_flutter/widgets/safe_area/save_area_widget.dart';
 import 'package:white_label_flutter/widgets/search_bar/search_bar_widget.dart';
 import 'package:white_label_flutter/widgets/spinner/spinner_overlay.dart';
-import 'package:white_label_flutter/widgets/text/textWidget.dart';
+import 'package:white_label_flutter/widgets/text/text_widget.dart';
 
 class DashboardScreen extends StatefulWidget {
   @override
@@ -59,7 +59,6 @@ class _DashboardScreenState extends State<DashboardScreen> {
 
   @override
   Widget build(BuildContext context) {
-    print('state products > ${products.length}');
     return Scaffold(
       appBar: AppBarWidget(
         usageFor: Routes.dashboard,
@@ -90,17 +89,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 ],
               ),
             )),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          showDialog(
-            context: context,
-            builder: (BuildContext context) => SpinnerOverlay(),
-          );
-        },
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      ),// This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }

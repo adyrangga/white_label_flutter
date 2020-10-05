@@ -34,7 +34,7 @@ class AppBarWidget extends PreferredSize {
         //   Navigator.pushNamed(context, Routes.login);
         // },
       ));
-    } else if (usageFor == Routes.login) {
+    } else if (usageFor == Routes.login || usageFor == Routes.cart) {
       contents.add(IconButton(
         padding: EdgeInsets.all(0.0),
         alignment: Alignment.centerRight,
@@ -48,7 +48,9 @@ class AppBarWidget extends PreferredSize {
         alignment: Alignment.centerRight,
         icon: Icon(Icons.shopping_cart),
         color: Colors.black54,
-        onPressed: () {},
+        onPressed: () {
+          Navigator.pushNamed(context, Routes.cart);
+        },
       ));
     }
     return Row(
@@ -67,7 +69,7 @@ class AppBarWidget extends PreferredSize {
         tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
       )
     ];
-    if (usageFor == Routes.login) {
+    if (usageFor == Routes.login || usageFor == Routes.cart) {
       contents.add(IconButton(
         padding: EdgeInsets.all(0.0),
         alignment: Alignment.centerLeft,

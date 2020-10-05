@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:dio/dio.dart';
-import 'package:white_label_flutter/models/accounts/accountsModel.dart';
+import 'package:white_label_flutter/models/accounts/accounts_model.dart';
 
 class DioClient {
   // dio instance

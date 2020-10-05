@@ -34,6 +34,18 @@ class Strings {
       'Creating an account is easy. Simply fill out the form below and enjoy the benefits of being a registered customer.';
   static const String registerInfo2Text =
       'Unable to create an account? Be sure not to miss out on loyalty points! Our customer service agents are here to help you - simply call 1-877-GNC-4700 or send us a chat via our Contact Us page.';
+
+  /// dashboard
   static const String SEARCH_BAR_LABEL = 'What can we help you find?';
   static const String BANNER_PROMO_INFO = '20% OFF GHOST®';
+
+  /// carts
+  static const String CART_EMPTY = 'Your Cart is Empty';
+  static const String BACK_TO_SHOPPING = 'BACK TO SHOPPING';
+  static const String MY_SHOPPING_CART = 'MY SHOPPING CART';
+  static const String TAKE_ME_TO_CHECKOUT = 'TAKE ME TO CHECKOUT';
+  static const String SUBTITLE = 'Subtitle';
+  static const String ESTIMATED_SHIPPING = 'Estimated Shipping';
+  static const String ESTIMATED_ORDER_TOTAL = 'Estimated Order Total';
+  static const String TAX_SHOWN_REVIEW_PAGE = 'Tax shown on Review Page.';
 }

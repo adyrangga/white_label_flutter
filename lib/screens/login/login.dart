@@ -3,16 +3,16 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:white_label_flutter/constants/size.dart';
 import 'package:white_label_flutter/constants/strings.dart';
-import 'package:white_label_flutter/models/accounts/accountsViewModel.dart';
+import 'package:white_label_flutter/models/accounts/accounts_view_model.dart';
 import 'package:white_label_flutter/routes.dart';
-import 'package:white_label_flutter/utils/validationForm.dart';
-import 'package:white_label_flutter/widgets/appBar/appBarWidget.dart';
-import 'package:white_label_flutter/widgets/button/buttonWidget.dart';
+import 'package:white_label_flutter/utils/validation_form.dart';
+import 'package:white_label_flutter/widgets/app_bar/app_bar_widget.dart';
+import 'package:white_label_flutter/widgets/button/button_widget.dart';
 import 'package:white_label_flutter/widgets/fake/fake_widget.dart';
-import 'package:white_label_flutter/widgets/inputField/inputFieldWidget.dart';
-import 'package:white_label_flutter/widgets/safeArea/saveAreaWidget.dart';
+import 'package:white_label_flutter/widgets/input_field/input_field_widget.dart';
+import 'package:white_label_flutter/widgets/safe_area/save_area_widget.dart';
 import 'package:white_label_flutter/widgets/spinner/spinner_overlay.dart';
-import 'package:white_label_flutter/widgets/text/textWidget.dart';
+import 'package:white_label_flutter/widgets/text/text_widget.dart';
 
 class LoginScreen extends StatefulWidget {
   @override

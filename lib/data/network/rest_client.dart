@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'dart:async';
 
 import 'package:http/http.dart' as http;
-import 'package:white_label_flutter/data/network/exceptions/networkExceptions.dart';
+import 'package:white_label_flutter/data/network/exceptions/network_exceptions.dart';
 
 class RestClient {
 

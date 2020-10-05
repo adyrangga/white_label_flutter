@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:white_label_flutter/constants/colorPalette.dart';
+import 'package:white_label_flutter/constants/color_palette.dart';
 
 /// *  textInputType - The type of information for which to optimize the text input control.
 /// *  hintText - Text that suggests what sort of input the field accepts.

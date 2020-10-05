@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:white_label_flutter/constants/size.dart';
-import 'package:white_label_flutter/widgets/text/textWidget.dart';
+import 'package:white_label_flutter/widgets/text/text_widget.dart';
 import 'package:intl/intl.dart';
 
 class TextPricingWidget extends StatelessWidget {

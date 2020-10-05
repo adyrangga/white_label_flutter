@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:white_label_flutter/screens/cart/cart.dart';
 import 'package:white_label_flutter/screens/dashboard/dashboard.dart';
 import 'package:white_label_flutter/screens/login/login.dart';
 import 'package:white_label_flutter/screens/profile/profile.dart';
@@ -14,11 +15,13 @@ class Routes {
   static const String login = '/login';
   static const String dashboard = '/dashboard';
   static const String profile = '/profile';
+  static const String cart = '/cart';
 
   static final routes = <String, WidgetBuilder>{
     dashboard: (BuildContext context) => DashboardScreen(),
     register: (BuildContext context) => RegisterScreen(),
     login: (BuildContext context) => LoginScreen(),
     profile: (BuildContext context) => ProfileScreen(),
+    cart: (BuildContext context) => CartScreen(),
   };
 }

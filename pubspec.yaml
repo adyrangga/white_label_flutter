@@ -50,6 +50,7 @@ flutter:
   assets:
     - assets/images/primary-logo.png
     - assets/icons/spinner-200.gif
+    - assets/icons/cart-red.png
   #  - images/a_dot_burr.jpeg
   #  - images/a_dot_ham.jpeg
 

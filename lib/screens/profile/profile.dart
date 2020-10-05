@@ -2,8 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:white_label_flutter/routes.dart';
-import 'package:white_label_flutter/widgets/appBar/appBarWidget.dart';
-import 'package:white_label_flutter/widgets/safeArea/saveAreaWidget.dart';
+import 'package:white_label_flutter/widgets/app_bar/app_bar_widget.dart';
+import 'package:white_label_flutter/widgets/safe_area/save_area_widget.dart';
 
 class ProfileScreen extends StatefulWidget {
   @override
