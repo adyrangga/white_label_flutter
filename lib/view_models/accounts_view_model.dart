@@ -1,6 +1,6 @@
 import 'package:white_label_flutter/data/network/endpoints.dart';
 import 'package:white_label_flutter/data/network/rest_client.dart';
-import 'package:white_label_flutter/models/accounts/accounts_model.dart';
+import 'package:white_label_flutter/models/accounts_model.dart';
 
 class AccountsViewModel {
   RestClient resClient = RestClient();

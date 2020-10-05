@@ -4,7 +4,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:white_label_flutter/constants/size.dart';
 import 'package:white_label_flutter/constants/strings.dart';
 import 'package:white_label_flutter/data/network/mock_urls.dart';
-import 'package:white_label_flutter/models/products/products_view_model.dart';
+import 'package:white_label_flutter/view_models/products_view_model.dart';
 import 'package:white_label_flutter/routes.dart';
 import 'package:white_label_flutter/widgets/app_bar/app_bar_widget.dart';
 import 'package:white_label_flutter/widgets/products_grid/products_grid_widget.dart';
