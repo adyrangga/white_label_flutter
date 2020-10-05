@@ -5,15 +5,10 @@ class ProductsModel {
   String name;
   PricesModel prices;
 
-  // String normal;
-  // String discounted;
-
   ProductsModel({
     this.image,
     this.name,
     this.prices,
-    // this.normal,
-    // this.discounted
   });
 
   factory ProductsModel.fromJson(Map<String, dynamic> json) {
@@ -21,21 +16,16 @@ class ProductsModel {
       image: json["image"],
       name: json["name"],
       prices: json['prices'] != null ? new PricesModel.fromJson(json['prices']) : null,
-      // prices: map["prices"],
-      // normal: map["normal"],
-      // discounted: map["discounted"],
     );
   }
 
   Map<String, dynamic> toJson() {
     return {"image": image, "name": name, "prices": prices};
-    // return {"image": image, "name": name};
   }
 
   @override
   String toString() {
     return 'ProductsModel{"image": $image, "name": $name, "prices": $prices}';
-    // return 'ProductsModel{"image": $image, "name": $name}';
   }
 }
 

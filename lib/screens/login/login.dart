@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:white_label_flutter/constants/size.dart';
 import 'package:white_label_flutter/constants/strings.dart';
-import 'package:white_label_flutter/models/accounts/accounts_view_model.dart';
+import 'package:white_label_flutter/view_models/accounts_view_model.dart';
 import 'package:white_label_flutter/routes.dart';
 import 'package:white_label_flutter/utils/validation_form.dart';
 import 'package:white_label_flutter/widgets/app_bar/app_bar_widget.dart';

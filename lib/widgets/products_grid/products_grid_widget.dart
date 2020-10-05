@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:white_label_flutter/constants/size.dart';
-import 'package:white_label_flutter/models/products/products_model.dart';
+import 'package:white_label_flutter/models/products_model.dart';
 import 'package:white_label_flutter/widgets/fake/fake_widget.dart';
 import 'package:white_label_flutter/widgets/text/text_widget.dart';
 import 'package:white_label_flutter/widgets/text/text_pricing_widget.dart';
