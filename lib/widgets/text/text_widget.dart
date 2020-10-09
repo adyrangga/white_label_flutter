@@ -9,6 +9,7 @@ class TextWidget extends StatefulWidget {
   final FontWeight fontWeight;
   final TextAlign textAlign;
   final TextDecoration decoration;
+  final FontStyle fontStyle;
 
   const TextWidget({
     @required this.text,
@@ -18,6 +19,7 @@ class TextWidget extends StatefulWidget {
     this.fontWeight = FontWeight.normal,
     this.textAlign = TextAlign.left,
     this.decoration = TextDecoration.none,
+    this.fontStyle = FontStyle.normal,
   });
 
   @override
@@ -35,7 +37,7 @@ class _TextWidgetState extends State<TextWidget> {
               decoration: widget.decoration,
               color: widget.color,
               fontSize: widget.fontSize,
-              fontStyle: FontStyle.normal,
+              fontStyle: widget.fontStyle,
               fontWeight: widget.fontWeight)),
     );
   }

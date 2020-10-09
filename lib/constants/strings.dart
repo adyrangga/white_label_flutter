@@ -1,21 +1,22 @@
 class Strings {
+  /// avoid instantiate class
   Strings._();
 
   /// General
-  static const String appName = 'White Label Demo';
+  static const String APP_NAME = 'White Label Demo';
 
   /// Drawer
   static const String DRAWER_LOGIN = 'Log In / Sign Up';
 
   /// CONTENTS FOR LOGIN SCREEN
-  static const String RETURNING_CUSTOMERS_TEXT = 'Returning customers';
-  static const String requiredText = '*required';
-  static const String loginInfoText =
+  static const String RETURNING_CUSTOMERS = 'Returning customers';
+  static const String ASTERISK_REQUIRED = '*required';
+  static const String LOGIN_INFO_TEXT =
       'If you are a registered user, please enter your email and password.';
-  static const String emailHintText = 'Email address*';
-  static const String passwordHintText = 'Password*';
-  static const String forgotPasswordText = 'I forgot my password';
-  static const String loginText = 'Login';
+  static const String EMAIL_HINT_TEXT = 'Email address*';
+  static const String PASSWORD_ASTERISK = 'Password*';
+  static const String FORGOT_PASSWORD = 'I forgot my password';
+  static const String LOGIN = 'Login';
   static const String NEW_CUSTOMER = 'New customers';
   static const String NEW_CUSTOMER_INFO =
       'Creating an account is easy. Just fill out the form below and enjoy the benefits of being a registered customer.';
@@ -29,10 +30,10 @@ class Strings {
   static const String LOGIN_FAILED_MESSAGE = 'Something has gone wrong. Please try again, and if the problem persists contact support.';
 
   /// CONTENTS FOR REGISTER SCREEN
-  static const String createAccountText = 'Create Account';
-  static const String registerInfo1Text =
+  static const String CREATE_ACCOUNT = 'Create Account';
+  static const String REGISTER_INFO1 =
       'Creating an account is easy. Simply fill out the form below and enjoy the benefits of being a registered customer.';
-  static const String registerInfo2Text =
+  static const String REGISTER_INFO2 =
       'Unable to create an account? Be sure not to miss out on loyalty points! Our customer service agents are here to help you - simply call 1-877-GNC-4700 or send us a chat via our Contact Us page.';
 
   /// dashboard
@@ -44,8 +45,21 @@ class Strings {
   static const String BACK_TO_SHOPPING = 'BACK TO SHOPPING';
   static const String MY_SHOPPING_CART = 'MY SHOPPING CART';
   static const String TAKE_ME_TO_CHECKOUT = 'TAKE ME TO CHECKOUT';
-  static const String SUBTITLE = 'Subtitle';
+  static const String SUBTOTAL = 'Subtotal';
   static const String ESTIMATED_SHIPPING = 'Estimated Shipping';
   static const String ESTIMATED_ORDER_TOTAL = 'Estimated Order Total';
   static const String TAX_SHOWN_REVIEW_PAGE = 'Tax shown on Review Page.';
+  static const String APPROACH_PROMO_MESSAGE = 'Purchase \$17.01 more and receive FREE SHIPPING';
+  static const String HOW_TO_GET_IT = 'How To Get It:';
+  static const String SHIP_TO_ME = 'Ship to Me';
+  static const String BUY_ONLINE_PICK_IN_STORE = 'Buy Online, Pickup in Store';
+  static const String OMNI_ALERT = 'Temporarily available at a limited number of locations.';
+  static const String CHANGE_STORE = 'Change Store';
+  static const String REMOVE_ITEM = 'Remove Item';
+  static const String EDIT_ITEM = 'Edit Item';
+  static const String SIZE_VARIANT = 'Size: ';
+  static const String SIZE_VARIANT_VALUE = '26 Servings';
+  static const String FLAVOR_VARIANT = 'Flavor: ';
+  static const String FLAVOR_VARIANT_VALUE = 'Chips Ahoy!';
+  static const String QUANTITY = 'Quantity';
 }

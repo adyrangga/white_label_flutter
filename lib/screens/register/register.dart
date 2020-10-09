@@ -19,7 +19,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBarWidget(
-        usageFor: Routes.register,
+        usageFor: Routes.REGISTER,
       ),
       body: SafeAreaWidget(
         onTap: () {
@@ -33,12 +33,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   TextWidget(
-                    text: Strings.createAccountText,
+                    text: Strings.CREATE_ACCOUNT,
                     fontSize: Size.TITLE,
                     fontWeight: FontWeight.bold,
                   ),
-                  TextWidget(text: Strings.registerInfo1Text),
-                  TextWidget(text: Strings.registerInfo2Text),
+                  TextWidget(text: Strings.REGISTER_INFO1),
+                  TextWidget(text: Strings.REGISTER_INFO2),
                   Form(
                       child: Column(
                     children: <Widget>[
@@ -61,11 +61,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         functionValidate: commonValidation,
                       ),
                       ButtonWidget(
-                        text: Strings.createAccountText,
+                        text: Strings.CREATE_ACCOUNT,
                         minWidth: 250,
                         margin: EdgeInsets.symmetric(vertical: 50),
                         onClick: () {
-                          Navigator.pushNamed(context, Routes.dashboard);
+                          Navigator.pushNamed(context, Routes.DASHBOARD);
                         },
                       ),
                     ],

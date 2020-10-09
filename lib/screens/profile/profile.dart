@@ -44,7 +44,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBarWidget(
-        usageFor: Routes.profile,
+        usageFor: Routes.PROFILE,
         onClick: _handleClickAppBar,
       ),
       body: SafeAreaWidget(

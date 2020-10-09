@@ -7,21 +7,23 @@ import 'package:white_label_flutter/screens/profile/profile.dart';
 import 'package:white_label_flutter/screens/register/register.dart';
 
 class Routes {
+  /// avoid instantiate class
   Routes._();
 
   /// static variables
-  static const String splash = '/splash';
-  static const String register = '/register';
-  static const String login = '/login';
-  static const String dashboard = '/dashboard';
-  static const String profile = '/profile';
-  static const String cart = '/cart';
+  static const String SPLASH = '/splash';
+  static const String REGISTER = '/register';
+  static const String LOGIN = '/login';
+  static const String DASHBOARD = '/dashboard';
+  static const String PROFILE = '/profile';
+  static const String CART = '/cart';
 
+  /// routes screen
   static final routes = <String, WidgetBuilder>{
-    dashboard: (BuildContext context) => DashboardScreen(),
-    register: (BuildContext context) => RegisterScreen(),
-    login: (BuildContext context) => LoginScreen(),
-    profile: (BuildContext context) => ProfileScreen(),
-    cart: (BuildContext context) => CartScreen(),
+    DASHBOARD: (BuildContext context) => DashboardScreen(),
+    REGISTER: (BuildContext context) => RegisterScreen(),
+    LOGIN: (BuildContext context) => LoginScreen(),
+    PROFILE: (BuildContext context) => ProfileScreen(),
+    CART: (BuildContext context) => CartScreen(),
   };
 }

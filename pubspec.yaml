@@ -24,7 +24,10 @@ dependencies:
   dio: ^3.0.10
   # A local store value, based on key-value.
   shared_preferences: ^0.5.12
-#  get_it: ^5.0.1
+  # A state management
+  provider: ^4.3.2+2
+  # A badge flag notification
+  badges: ^1.1.3
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.

@@ -1,10 +1,15 @@
+import 'dart:async';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:white_label_flutter/app_state/cart_state.dart';
 import 'package:white_label_flutter/constants/size.dart';
 import 'package:white_label_flutter/models/products_model.dart';
 import 'package:white_label_flutter/widgets/fake/fake_widget.dart';
+import 'package:white_label_flutter/widgets/spinner/spinner_overlay.dart';
 import 'package:white_label_flutter/widgets/text/text_widget.dart';
 import 'package:white_label_flutter/widgets/text/text_pricing_widget.dart';
+import 'package:provider/provider.dart';
 
 class ProductsGridWidget extends StatelessWidget {
   final List data;
@@ -60,24 +65,36 @@ class ProductsGridWidget extends StatelessWidget {
 
   List<Widget> _productsList(BuildContext context) {
     var contents = data.map<Widget>((item) {
-      return Container(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: <Widget>[
-            Image(image: NetworkImage(item.image), width: 170),
-            Expanded(
-              child: TextWidget(
-                text: item.name,
-                fontSize: Size.NORMAL,
-                textAlign: TextAlign.center,
-                padding: EdgeInsets.symmetric(vertical: 10, horizontal: 4),
+      return GestureDetector(
+        onTap: () {
+          context.read<CartState>().add(item, context);
+          // showDialog(
+          //   context: context,
+          //   builder: (BuildContext context) => SpinnerOverlay(),
+          // );
+          // Timer timer = new Timer(new Duration(seconds: 1), () {
+          //   Navigator.of(context).pop();
+          // });
+        },
+        child: Container(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: <Widget>[
+              Image(image: NetworkImage(item.image), width: 170),
+              Expanded(
+                child: TextWidget(
+                  text: item.name,
+                  fontSize: Size.NORMAL,
+                  textAlign: TextAlign.center,
+                  padding: EdgeInsets.symmetric(vertical: 10, horizontal: 4),
+                ),
               ),
-            ),
-            _productReview(context),
-            _productPricing(context, item),
-            _productPromotion(context)
-          ],
+              _productReview(context),
+              _productPricing(context, item),
+              _productPromotion(context)
+            ],
+          ),
         ),
       );
     }).toList();

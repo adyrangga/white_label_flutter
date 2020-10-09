@@ -70,7 +70,7 @@ class _DashboardScreenState extends State<LoginScreen> with ValidationForm {
     if (check.length == 1) {
       print('login valid: $check');
       sp.setBool('hasLogin', true);
-      Navigator.pushNamed(context, Routes.dashboard);
+      Navigator.pushNamed(context, Routes.DASHBOARD);
     } else {
       print('login not valid: $check');
       sp.setBool('hasLogin', false);
@@ -99,7 +99,7 @@ class _DashboardScreenState extends State<LoginScreen> with ValidationForm {
       children: <Widget>[
         Padding(
           padding: const EdgeInsets.fromLTRB(0, 20, 0, 5),
-          child: Text(Strings.forgotPasswordText,
+          child: Text(Strings.FORGOT_PASSWORD,
               style: TextStyle(color: Colors.blue)),
         )
       ],
@@ -123,13 +123,13 @@ class _DashboardScreenState extends State<LoginScreen> with ValidationForm {
             fontWeight: FontWeight.w500,
           ),
           ButtonWidget(
-            text: Strings.createAccountText,
+            text: Strings.CREATE_ACCOUNT,
             textColor: Colors.red,
             minWidth: 250,
             backgroundColor: Colors.white,
             margin: EdgeInsets.symmetric(vertical: 30),
             onClick: () {
-              Navigator.pushNamed(context, Routes.register);
+              Navigator.pushNamed(context, Routes.REGISTER);
             },
           ),
           TextWidget(
@@ -173,7 +173,7 @@ class _DashboardScreenState extends State<LoginScreen> with ValidationForm {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBarWidget(
-        usageFor: Routes.login,
+        usageFor: Routes.LOGIN,
       ),
       body: SafeAreaWidget(
         onTap: () {
@@ -188,7 +188,7 @@ class _DashboardScreenState extends State<LoginScreen> with ValidationForm {
                 children: <Widget>[
                   Padding(
                     padding: const EdgeInsets.only(bottom: 10.0),
-                    child: Text(Strings.RETURNING_CUSTOMERS_TEXT,
+                    child: Text(Strings.RETURNING_CUSTOMERS,
                         style: TextStyle(
                             color: Colors.black,
                             fontSize: 25,
@@ -196,7 +196,7 @@ class _DashboardScreenState extends State<LoginScreen> with ValidationForm {
                   ),
                   Padding(
                     padding: const EdgeInsets.only(bottom: 10.0),
-                    child: Text(Strings.requiredText,
+                    child: Text(Strings.ASTERISK_REQUIRED,
                         style: TextStyle(
                             color: Colors.black,
                             fontSize: 15,
@@ -204,7 +204,7 @@ class _DashboardScreenState extends State<LoginScreen> with ValidationForm {
                   ),
                   Padding(
                     padding: const EdgeInsets.only(bottom: 10.0),
-                    child: Text(Strings.loginInfoText,
+                    child: Text(Strings.LOGIN_INFO_TEXT,
                         style: TextStyle(
                             color: Colors.black,
                             fontSize: 15,
@@ -216,7 +216,7 @@ class _DashboardScreenState extends State<LoginScreen> with ValidationForm {
                       child: Column(
                         children: <Widget>[
                           InputFieldWidget(
-                            hintText: Strings.emailHintText,
+                            hintText: Strings.EMAIL_HINT_TEXT,
                             textInputType: TextInputType.emailAddress,
                             functionValidate: validateEmail,
                             onSaved: (String value) {
@@ -228,7 +228,7 @@ class _DashboardScreenState extends State<LoginScreen> with ValidationForm {
                           ),
                           InputFieldWidget(
                             obscureText: true,
-                            hintText: Strings.passwordHintText,
+                            hintText: Strings.PASSWORD_ASTERISK,
                             textInputType: TextInputType.visiblePassword,
                             functionValidate: validatePassword,
                             onSaved: (String value) {
@@ -236,11 +236,13 @@ class _DashboardScreenState extends State<LoginScreen> with ValidationForm {
                             },
                             onSubmitField: () {
                               FocusScope.of(context).unfocus();
+                              _loginButtonHandler(context);
                             },
+                            actionKeyboard: TextInputAction.go
                           ),
                           _textForgotPassword(),
                           ButtonWidget(
-                            text: Strings.loginText,
+                            text: Strings.LOGIN,
                             minWidth: 250,
                             onClick: () {
                               _loginButtonHandler(context);

@@ -1,10 +1,12 @@
+import 'package:badges/badges.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:provider/provider.dart';
+import 'package:white_label_flutter/app_state/cart_state.dart';
+import 'package:white_label_flutter/navigations/Navigation.dart';
 import 'package:white_label_flutter/routes.dart';
 
 class AppBarWidget extends PreferredSize {
-
   final Widget child;
   final double height;
   final Color color;
@@ -19,38 +21,51 @@ class AppBarWidget extends PreferredSize {
     this.onClick,
   });
 
-  Widget _rightSideContent(BuildContext context) {
+  Widget _rightSideContent(BuildContext context, CartState cartState) {
     List<Widget> contents = [];
-    if (usageFor == Routes.dashboard) {
+    if (usageFor == Routes.DASHBOARD) {
       contents.add(IconButton(
         padding: EdgeInsets.all(0.0),
         alignment: Alignment.center,
         icon: Icon(Icons.account_circle),
         color: Colors.black54,
-        onPressed: () {
-          onClick('profile');
-        },
         // onPressed: () {
-        //   Navigator.pushNamed(context, Routes.login);
+        //   onClick(Routes.PROFILE);
         // },
+        onPressed: () {
+          // Navigator.pushNamed(context, Routes.LOGIN);
+          Navigation(context).to(Routes.LOGIN);
+        },
       ));
-    } else if (usageFor == Routes.login || usageFor == Routes.cart) {
+    } else if (usageFor == Routes.LOGIN || usageFor == Routes.CART) {
       contents.add(IconButton(
         padding: EdgeInsets.all(0.0),
         alignment: Alignment.centerRight,
         icon: Icon(Icons.account_circle),
         color: Colors.black54,
         onPressed: () {
-          Navigator.pushNamed(context, Routes.register);
+          Navigator.pushNamed(context, Routes.REGISTER);
         },
       ));
-      contents.add(IconButton(
-        alignment: Alignment.centerRight,
-        icon: Icon(Icons.shopping_cart),
-        color: Colors.black54,
-        onPressed: () {
-          Navigator.pushNamed(context, Routes.cart);
+      contents.add(GestureDetector(
+        onTap: () {
+          // Navigator.pushNamed(context, Routes.CART);
+          Navigation(context).to(Routes.CART);
         },
+        child: Badge(
+          position: BadgePosition.topEnd(top: 4, end: 4),
+          shape: BadgeShape.circle,
+          badgeColor: Colors.red,
+          badgeContent: Text(
+            cartState.selectCartItemList.length.toString(),
+            style: TextStyle(color: Colors.white, fontSize: 12),
+          ),
+          child: IconButton(
+            alignment: Alignment.centerRight,
+            icon: Icon(Icons.shopping_cart),
+            color: Colors.black54,
+          ),
+        ),
       ));
     }
     return Row(
@@ -59,7 +74,7 @@ class AppBarWidget extends PreferredSize {
     );
   }
 
-  Widget _leftSideContent(BuildContext context) {
+  Widget _leftSideContent(BuildContext context, CartState cartState) {
     List<Widget> contents = [
       IconButton(
         alignment: Alignment.center,
@@ -69,7 +84,7 @@ class AppBarWidget extends PreferredSize {
         tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
       )
     ];
-    if (usageFor == Routes.login || usageFor == Routes.cart) {
+    if (usageFor == Routes.LOGIN || usageFor == Routes.CART) {
       contents.add(IconButton(
         padding: EdgeInsets.all(0.0),
         alignment: Alignment.centerLeft,
@@ -89,41 +104,46 @@ class AppBarWidget extends PreferredSize {
 
   @override
   Widget build(BuildContext context) {
-    print('appBarWidget $usageFor}');
-    return SafeArea(
-      child: Container(
-        height: preferredSize.height,
-        alignment: Alignment.center,
-        decoration: BoxDecoration(
-          color: color ?? Colors.white,
-          boxShadow: <BoxShadow>[
-            BoxShadow(
-              color: Colors.black54,
-              blurRadius: 5.0,
-            ),
-          ],
-        ),
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            Container(
-              width: MediaQuery.of(context).size.width * 0.33,
-              alignment: Alignment.centerLeft,
-              child: _leftSideContent(context),
-            ),
-            Container(
-                width: MediaQuery.of(context).size.width * 0.34,
+    // print('get current path > ${ModalRoute.of(context).settings.name}');
+    // print('from custome nav > ${}')
+    return Consumer<CartState>(
+      builder: (context, cartState, child) => SafeArea(
+        child: Container(
+          height: preferredSize.height,
+          alignment: Alignment.center,
+          // decoration: BoxDecoration(
+          //   color: color ?? Colors.white,
+          //   boxShadow: <BoxShadow>[
+          //     BoxShadow(
+          //       color: Colors.black54,
+          //       blurRadius: 5.0,
+          //       spreadRadius: 0.0,
+          //       offset: Offset(2, 2),
+          //     ),
+          //   ],
+          // ),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              Container(
+                width: MediaQuery.of(context).size.width * 0.33,
+                alignment: Alignment.centerLeft,
+                child: _leftSideContent(context, cartState),
+              ),
+              Container(
+                  width: MediaQuery.of(context).size.width * 0.34,
+                  alignment: Alignment.centerRight,
+                  child: Image(
+                      image: AssetImage('assets/images/primary-logo.png'),
+                      width: 150,
+                      height: 50)),
+              Container(
+                width: MediaQuery.of(context).size.width * 0.33,
                 alignment: Alignment.centerRight,
-                child: Image(
-                    image: AssetImage('assets/images/primary-logo.png'),
-                    width: 150,
-                    height: 50)),
-            Container(
-              width: MediaQuery.of(context).size.width * 0.33,
-              alignment: Alignment.centerRight,
-              child: _rightSideContent(context),
-            ),
-          ],
+                child: _rightSideContent(context, cartState),
+              ),
+            ],
+          ),
         ),
       ),
     );
