@@ -68,21 +68,7 @@ class CartProductWidget extends StatelessWidget {
                 ),
               ],
             ),
-            // Row(
-            //   mainAxisAlignment: MainAxisAlignment.start,
-            //   children: [
-            //     TextWidget(
-            //       text: Strings.REMOVE_ITEM,
-            //       color: Colors.red,
-            //       textAlign: TextAlign.left,
-            //       // padding: EdgeInsets.symmetric(horizontal: 20),
-            //       fontSize: 14,
-            //       fontWeight: FontWeight.bold,
-            //       decoration: TextDecoration.underline,
-            //     ),
-            //   ],
-            // ),
-            CartProductDetailsWidget(),
+            CartProductDetailsWidget(data: data),
           ],
         ),
       ),

@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/painting.dart';
 import 'package:provider/provider.dart';
 import 'package:white_label_flutter/app_state/cart_state.dart';
 import 'package:white_label_flutter/constants/size.dart';
@@ -8,7 +7,6 @@ import 'package:white_label_flutter/constants/strings.dart';
 import 'package:white_label_flutter/routes.dart';
 import 'package:white_label_flutter/view_models/products_view_model.dart';
 import 'package:white_label_flutter/widgets/app_bar/app_bar_widget.dart';
-import 'package:white_label_flutter/widgets/button/button_widget.dart';
 import 'package:white_label_flutter/widgets/cart/cart_product_widget.dart';
 import 'package:white_label_flutter/widgets/fake/fake_widget.dart';
 import 'package:white_label_flutter/widgets/safe_area/save_area_widget.dart';
@@ -237,7 +235,7 @@ class _CartScreenState extends State<CartScreen> {
                               children: [
                                 Image(
                                   image: AssetImage(
-                                      'assets/images/icon-shiptome.png'),
+                                      'assets/icons/icon-shiptome.png'),
                                 ),
                                 TextWidget(
                                   text: Strings.SHIP_TO_ME,
@@ -362,11 +360,12 @@ class _CartScreenState extends State<CartScreen> {
             fontWeight: FontWeight.bold,
           ),
           TextClickableWidget(
-              text: Strings.BACK_TO_SHOPPING,
-              margin: EdgeInsets.symmetric(vertical: 10),
-              onClick: () {
-                print('click back to shopping');
-              }),
+            text: Strings.BACK_TO_SHOPPING,
+            margin: EdgeInsets.symmetric(vertical: 10),
+            onClick: () {
+              print('click back to shopping');
+            },
+          ),
           Container(
             margin: EdgeInsets.all(20),
             child: Image(

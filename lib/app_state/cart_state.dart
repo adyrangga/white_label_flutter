@@ -4,7 +4,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:white_label_flutter/constants/size.dart';
 import 'package:white_label_flutter/models/products_model.dart';
-import 'package:provider/provider.dart';
 import 'package:white_label_flutter/widgets/spinner/spinner_overlay.dart';
 import 'package:white_label_flutter/widgets/text/text_widget.dart';
 
@@ -18,6 +17,16 @@ class CartState with ChangeNotifier, DiagnosticableTreeMixin {
   /// set state / action-reducer
   void add(ProductsModel item, BuildContext context) {
     cartItemList.add(item);
+    spinnerLoading(context, 'Product added to cart');
+    // notifyListeners();
+  }
+
+  void remove(BuildContext context, ProductsModel item) {
+    cartItemList.removeWhere((el) => el.name == item.name);
+    spinnerLoading(context, 'Product has been removed');
+  }
+
+  void spinnerLoading(BuildContext context, String text) {
     showDialog(
       context: context,
       builder: (BuildContext context) => SpinnerOverlay(),
@@ -27,15 +36,15 @@ class CartState with ChangeNotifier, DiagnosticableTreeMixin {
       final snackBar = SnackBar(
         duration: new Duration(seconds: 2),
         content: TextWidget(
-          text: 'Product added to cart',
+          text: text,
           textAlign: TextAlign.center,
           fontSize: Size.SUB_TITLE,
           color: Colors.white,
         ),
       );
       Scaffold.of(context).showSnackBar(snackBar);
+      notifyListeners();
     });
-    notifyListeners();
   }
 
   /// Makes this class readable inside the devtools by listing all of its properties
